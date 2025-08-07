@@ -4,8 +4,9 @@ plugins {
 }
 
 develocity {
-    val bar = providers.environmentVariable("BAR").orElse("unset2")
+    def bar = providers.environmentVariable("BAR").orElse("unset2")
     buildScan.buildFinished {
+        println("HELLO")
         buildScan.value("foo", bar.get())
     }
 }
